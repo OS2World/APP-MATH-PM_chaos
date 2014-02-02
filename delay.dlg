@@ -1,0 +1,22 @@
+/*  PMChaos.   (C) Copyright Matthew Austern, 1993.
+
+    Permission granted to use, distribute, and modify, provided that this
+    notice remains intact.  If you distribute a modified version, you must
+    identify your modifications as such.
+*/
+
+DLGINCLUDE 600 "delay.h"
+
+DLGTEMPLATE DID_DelayTime LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "PM Chaos: Slow motion", DID_DelayTime, 36, 39, 159, 54, WS_VISIBLE, 
+            FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        RTEXT           "Delay (1/10 sec):", 601, 15, 33, 84, 11, DT_VCENTER
+        ENTRYFIELD      "", DID_DelayEntry, 107, 35, 32, 8, ES_MARGIN
+        PUSHBUTTON      "OK", DID_Delay_OK, 6, 6, 40, 14
+        PUSHBUTTON      "Cancel", DID_Delay_Cancel, 60, 6, 40, 14
+        PUSHBUTTON      "Help", DID_Delay_Help, 114, 6, 40, 14,
+			BS_HELP | BS_NOPOINTERFOCUS 
+    END
+END

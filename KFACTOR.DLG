@@ -1,0 +1,28 @@
+/*  PMChaos.   (C) Copyright Matthew Austern, 1993.
+
+    Permission granted to use, distribute, and modify, provided that this
+    notice remains intact.  If you distribute a modified version, you must
+    identify your modifications as such.
+*/
+
+DLGINCLUDE 300 "kfactor.h"
+
+DLGTEMPLATE DID_KFactor LOADONCALL MOVEABLE DISCARDABLE
+{
+    DIALOG  "PM Chaos: K factor", DID_KFactor, 24, 36, 252, 84, WS_VISIBLE, 
+            FCF_SYSMENU | FCF_TITLEBAR
+    {
+        PUSHBUTTON      "OK", DID_K_OK, 36, 6, 40, 14
+        PUSHBUTTON      "Cancel", DID_K_Cancel, 105, 6, 40, 14
+        PUSHBUTTON      "Help", DID_K_Help, 174, 6, 40, 14,
+			BS_HELP | BS_NOPOINTERFOCUS
+        LTEXT           "K = 0.0000", DID_K_Text, 54, 63, 45, 8
+        CONTROL         "K", DID_K_Slider, 8, 33, 234, 28, WC_SLIDER, 
+                        SLS_HORIZONTAL | SLS_CENTER | SLS_LEFT | 
+                        SLS_SNAPTOINCREMENT | SLS_BUTTONSLEFT | 
+                        SLS_RIBBONSTRIP | SLS_HOMELEFT | SLS_PRIMARYSCALE1 | 
+                        WS_GROUP | WS_TABSTOP | WS_VISIBLE
+                        CTLDATA 12, 0, 301, 0, 0, 0
+        GROUPBOX	"", 306, 6, 24, 242, 57 
+    }
+}

@@ -1,0 +1,32 @@
+/*  PMChaos.   (C) Copyright Matthew Austern, 1993.
+
+    Permission granted to use, distribute, and modify, provided that this
+    notice remains intact.  If you distribute a modified version, you must
+    identify your modifications as such.
+*/
+
+DLGINCLUDE 800 "about.h"
+
+DLGTEMPLATE DID_About LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About PM Chaos", DID_About, 57, 21, 223, 102, WS_VISIBLE, 
+            FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        CTEXT           "PM Chaos", 801, 78, 78, 63, 15, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00FFFFFFL
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x007F7F7FL
+                        PRESPARAMS PP_FONTNAMESIZE, 0x532E3231L, 0x65747379L, 
+                        0x7250206DL, 0x726F706FL, 0x6E6F6974L, 0x00006C61L
+        CTEXT           "Copyright Matthew Austern, 1993", 802, 30, 66, 160, 
+                        8
+        CTEXT           "(matt@physics.berkeley.edu)", 803, 41, 57, 139, 8
+        LTEXT           "Permission granted to use, distribute, and modify,", 
+                        804, 4, 39, 218, 8
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+        LTEXT           "provided this notice remains intact.", 805, 4, 30, 
+                        175, 8
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+        ICON            ID_MainWindow, 806, 6, 81, 20, 16, WS_GROUP
+        PUSHBUTTON      "OK", DID_About_OK, 87, 9, 40, 14
+    END
+END

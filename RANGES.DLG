@@ -1,0 +1,28 @@
+/*  PMChaos.   (C) Copyright Matthew Austern, 1993.
+
+    Permission granted to use, distribute, and modify, provided that this
+    notice remains intact.  If you distribute a modified version, you must
+    identify your modifications as such.
+*/
+
+DLGINCLUDE 200 "ranges.h"
+
+DLGTEMPLATE DID_Ranges LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "PM Chaos: ranges", DID_Ranges, 96, 45, 189, 78, WS_VISIBLE, 
+            FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        ENTRYFIELD      "", DID_JMin, 44, 53, 62, 8, ES_MARGIN
+        ENTRYFIELD      "", DID_JMax, 122, 53, 62, 8, ES_MARGIN
+        ENTRYFIELD      "", DID_ThetaMin, 44, 32, 62, 8, ES_MARGIN
+        ENTRYFIELD      "", DID_ThetaMax, 122, 32, 62, 8, ES_MARGIN
+        RTEXT           "J", 105, 9, 54, 27, 8
+        RTEXT           "Theta", 106, 9, 33, 27, 8
+        LTEXT           "Min", 107, 63, 66, 20, 8
+        LTEXT           "Max", 108, 144, 66, 20, 8
+        PUSHBUTTON      "OK", DID_Range_OK, 12, 6, 40, 14
+        PUSHBUTTON      "Cancel", DID_Range_Cancel, 72, 6, 40, 14
+        PUSHBUTTON      "Help", DID_Range_Help, 135, 6, 40, 14,
+			BS_HELP | BS_NOPOINTERFOCUS
+    END
+END

@@ -1,0 +1,127 @@
+/*  PMChaos.   (C) Copyright Matthew Austern, 1993.
+
+    Permission granted to use, distribute, and modify, provided that this
+    notice remains intact.  If you distribute a modified version, you must
+    prominantly identify your modifications.
+*/
+
+#include <os2.h>
+#include "pmchaos_res.h"
+#include "color.h"
+#include "ranges.h"
+#include "kfactor.h"
+#include "about.h"
+#include "curpos.h"
+#include "delay.h"
+
+MENU ID_MainWindow
+  {
+  SUBMENU "~Control", IDM_Control
+    {
+    MENUITEM "S~top! \tEsc", IDM_Stop
+    MENUITEM "~Clear Screen \tAlt+C", IDM_ClearScreen
+    MENUITEM SEPARATOR
+    MENUITEM "~Exit \tAlt+X", IDM_Exit
+    }
+  SUBMENU "~Options", IDM_Options
+    {
+    MENUITEM "~Slow Motion \ts", IDM_SlowMotion
+    MENUITEM "Delay ~Time...\tt", IDM_DelayTime
+    MENUITEM SEPARATOR
+    MENUITEM "~Colors... \tc", IDM_Colors
+    MENUITEM "Set ~K... \tK", IDM_SetK
+    }
+  SUBMENU "~Range", IDM_Range
+    {
+    MENUITEM "Zoom ~In \t<", IDM_ZoomIn
+    MENUITEM "Zoom ~Out \t>", IDM_ZoomOut
+    MENUITEM SEPARATOR
+    MENUITEM "~Set Ranges... \tR", IDM_SetRange
+    }
+  SUBMENU "~Help", IDM_Help
+    {
+    MENUITEM "~General help",       SC_HELPEXTENDED, MIS_SYSCOMMAND
+    MENUITEM "~Keys help",	    SC_HELPKEYS, MIS_SYSCOMMAND
+    MENUITEM "~Help Usage",         IDM_HelpHelp
+    MENUITEM "Help ~Index",         SC_HELPINDEX, MIS_SYSCOMMAND
+    MENUITEM SEPARATOR
+    MENUITEM "~Product Information",IDM_HelpAbout
+    }
+  }
+
+HELPTABLE ID_MainHelpTable 
+{
+  HELPITEM ID_MainWindow, ID_MenuHelpTable,  1
+  HELPITEM DID_Color,     ID_ColorHelpTable, 210
+  HELPITEM DID_KFactor,   ID_KHelpTable,     220
+  HELPITEM DID_Ranges,    ID_RangeHelpTable, 233
+  HELPITEM DID_DelayTime  ID_DelayHelpTable, 241
+}
+
+
+HELPSUBTABLE ID_MenuHelpTable
+{
+  HELPSUBITEM IDM_Control,     300
+  HELPSUBITEM IDM_Stop,        301
+  HELPSUBITEM IDM_ClearScreen, 302 
+  HELPSUBITEM IDM_Exit,        303
+
+  HELPSUBITEM IDM_Options,     310
+  HELPSUBITEM IDM_SlowMotion,  311
+  HELPSUBITEM IDM_DelayTime,   241
+  HELPSUBITEM IDM_Colors,      210
+  HELPSUBITEM IDM_SetK,        220
+
+  HELPSUBITEM IDM_Range,       320
+  HELPSUBITEM IDM_SetRange,    233
+  HELPSUBITEM IDM_ZoomOut,     231
+  HELPSUBITEM IDM_ZoomIn,      232
+}
+
+HELPSUBTABLE ID_ColorHelpTable
+{
+}
+
+HELPSUBTABLE ID_KHelpTable
+{
+}
+
+HELPSUBTABLE ID_RangeHelpTable
+{
+} 
+
+HELPSUBTABLE ID_DelayHelpTable
+{
+} 
+
+
+
+
+
+ACCELTABLE ID_MainWindow
+  {
+  VK_ESC, IDM_Stop,	   VIRTUALKEY
+  "c",    IDM_ClearScreen, ALT
+  "x",    IDM_Exit,        ALT
+  "c",    IDM_Colors
+  "c",    IDM_Colors,	   SHIFT
+  "s",    IDM_SlowMotion
+  "s",    IDM_SlowMotion,  SHIFT
+  "t",    IDM_DelayTime
+  "t",	  IDM_DelayTime,   SHIFT
+  "k",    IDM_SetK
+  "k",    IDM_SetK,        SHIFT
+  "<",    IDM_ZoomIn,      SHIFT
+  ">",    IDM_ZoomOut,	   SHIFT
+  "r",    IDM_SetRange
+  "r",    IDM_SetRange,    SHIFT
+  }
+
+ICON    ID_MainWindow chaos.ico
+POINTER ID_RectPtr    sel_rect.ptr
+rcinclude about.dlg
+rcinclude ranges.dlg
+rcinclude color.dlg
+rcinclude kfactor.dlg
+rcinclude delay.dlg
+rcinclude curpos.dlg

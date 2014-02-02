@@ -1,0 +1,28 @@
+/*  PMChaos.   (C) Copyright Matthew Austern, 1993.
+
+    Permission granted to use, distribute, and modify, provided that this
+    notice remains intact.  If you distribute a modified version, you must
+    identify your modifications as such.
+*/
+
+DLGINCLUDE 500 "curpos.h"
+
+DLGTEMPLATE DID_CurPosition LOADONCALL MOVEABLE DISCARDABLE
+
+
+BEGIN
+    DIALOG  "PM Chaos: current point", DID_CurPosition, 63, 42, 120, 63,,
+            FCF_TITLEBAR
+    BEGIN
+        RTEXT           "J", 501, 3, 45, 33, 11, DT_VCENTER
+        RTEXT           "Theta", 502, 3, 30, 33, 11, DT_VCENTER
+        ENTRYFIELD      "", DID_JCoord, 47, 47, 50, 8, ES_MARGIN | ES_READONLY
+        ENTRYFIELD      "", DID_ThetaCoord, 47, 32, 50, 8, ES_MARGIN | ES_READONLY
+        LTEXT           "J' = J + K sin(Theta)", 505, 15, 15, 105, 8
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+			PRESPARAMS PP_FONTNAMESIZE, "9.Courier"
+        LTEXT           "Theta' = Theta + J'", 506, 15, 6, 105, 8
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+			PRESPARAMS PP_FONTNAMESIZE, "9.Courier"
+    END
+END
